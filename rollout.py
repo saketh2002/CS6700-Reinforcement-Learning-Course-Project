@@ -1,4 +1,11 @@
 import aicrowd_gym
+import os
+import time
+
+
+while not os.path.exists("/tmp/let-go"):
+    time.sleep(1)
+
 
 # Create env and complete a few episodes
 env = aicrowd_gym.make("Acrobot-v1")
