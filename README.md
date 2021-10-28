@@ -64,7 +64,7 @@ pip install -U -r requirements.txt
 
 ## Write your agents
 
-Your agents need to implement the [`Agent`](agent.py#L10) class from [`agent.py`](agent.py). Check out the file for descriptions of the functions that need to be implemented. 
+You need to implement the [`Agent`](agent.py#L10) class from [`agent.py`](agent.py). Check out the file for descriptions of the functions that need to be implemented. 
 
 You could specify env specific config options in [`config.py`](config.py)
 
@@ -91,9 +91,9 @@ ENV_NAME="bellman" python run.py
 --- | ---
 [`agent.py`](agent.py) | File for implementing the Agent class. Your code goes in this file.
 [`config.py`](config.py) | File containing the configuration options for  Agent class.
+[`run.py`](run.py) | File used to evaluate the agent class. Use this file to test your agents locally
 [`requirements.txt`](requirements.txt) | File containing the list of python packages you want to install for the submission to run. Refer [runtime configuration](#runtime-configuration) for more information.
 [`apt.txt`](apt.txt) | File containing the list of packages you want to install for submission to run. Refer [runtime configuration](#runtime-configuration) for more information.
-[`requirements.txt`](run.py) | File used to evaluate the agent class. Use this file to test your agents locally
 [`gym-bellman`](gym-bellman/) | Folder containing the gym environment for the Bellman's DP problem
 [`docs`](docs/) | Folder containing the descriptions for the environments in the challenge
 [`aicrowd.json`](docs/) | Submission configuration
