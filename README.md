@@ -2,6 +2,11 @@
 
 
 This is the starter kit for the [IITM RL Final Project](https://www.aicrowd.com/challenges/rl-project-2021) hosted on [AIcrowd](https://www.aicrowd.com). Clone the repository to compete now!
+The following are the environments you will be working on. Click on the respective links for the description. 
+
+- [Acrobot-v1](docs/acrobot.md)
+- [Taxi-v3](docs/taxi.md)
+- [Bellman's DP](docs/bellman.md)
 
 This repository contains:
 
@@ -59,10 +64,7 @@ pip install -U -r requirements.txt
 
 ## Write your agents
 
-Your agents need to implement the [`Agent`](agent.py#L10) class from [`agent.py`](agent.py). The following are the functions that need to be implemented.
-- 
-- 
-- 
+Your agents need to implement the [`Agent`](agent.py#L10) class from [`agent.py`](agent.py). Check out the file for descriptions of the functions that need to be implemented. 
 
 You could specify env specific config options in [`config.py`](config.py)
 

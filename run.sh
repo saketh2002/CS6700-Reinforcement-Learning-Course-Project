@@ -1,2 +1,2 @@
 
-python rollout.py
+python run.py

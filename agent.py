@@ -8,11 +8,13 @@ Look at the file run.py to understand how evaluations are done.
 
 There are two phases of evaluation:
 - Training Phase
-The method "learn" is invoked here. Use this phase to train your agents.
+The methods "registered_reset_train" and "compute_action_train" are invoked here. 
+Complete these functions to train your agent and save the state.
 
 - Test Phase
-The methods "registered_reset" and "compute_action" are invoked here. 
+The methods "registered_reset_test" and "compute_action_test" are invoked here. 
 The final scoring is based on your agent's performance in this phase. 
+Use the state saved in train phase here. 
 
 """
 
