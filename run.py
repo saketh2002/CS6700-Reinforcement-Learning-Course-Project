@@ -4,50 +4,56 @@ THIS FILE USES THE FUNCTIONS IMPLEMENTED IN agent.py TO EVALUATE YOUR AGENTS
 """
 
 import os
-import gym
+import aicrowd_gym
 import numpy as np
+from tqdm import tqdm
 
 from agent import Agent
 
-def train(agent, env,max_time_steps):
-    pass
-
+def train(agent, env):
+    obs = env.reset()
+    action = agent.register_reset_train(obs)
+    done = False
+    while not done:
+        obs, reward, done, info = env.step(action)
+        action = agent.compute_action_train(obs, reward, done, info)
 
 def evaluate(agent, env):
     rewards = 0 
     obs = env.reset()
-    action = agent.register_reset()
+    action = agent.register_reset_test(obs)
     done = False
     while not done:
         obs, reward, done, info = env.step(action)
-        action = agent.compute_action(obs, reward, done, info)
+        action = agent.compute_action_test(obs, reward, done, info)
         rewards += reward
-    return reward
+    return rewards
 
-if __name__== "main":
-    agent = Agent()
+if __name__ == "__main__":
     ENV_NAME = os.getenv("ENV_NAME","acrobot")
 
-    max_train_steps = {
-        "acrobat": 10000,
-        "taxi": 10000,
+    N_TRAIN_EPISODES = {
+        "acrobot": 1000,
+        "taxi": 3000,
         "bellman": 1000
     }
 
     N_EVAL_EPISODES = 100
 
     if ENV_NAME == "acrobot":
-        env = gym.make("Acrobot-v1")
+        env = aicrowd_gym.make("Acrobot-v1")
     elif ENV_NAME == "taxi":
-        env = gym.make("Taxi-v3")
+        env = aicrowd_gym.make("Taxi-v3")
     elif ENV_NAME == "bellman":
-        env = gym.make("BellmansDP-v0")
+        env = aicrowd_gym.make("BellmansDP-v0")
+    
+    agent = Agent(ENV_NAME)
 
-    train(agent ,env,max_train_steps[ENV_NAME])
+    for i in tqdm(range(N_TRAIN_EPISODES[ENV_NAME])):
+        train(agent ,env)
 
     rewards = []
-    for i in range(N_EVAL_EPISODES):
+    for i in tqdm(range(N_EVAL_EPISODES)):
         rewards.append(evaluate(agent, env))
 
-    print("Mean reward on your agent for {env} is {np.mean(rewards)}")
-
+    print(f"Mean reward on your agent for {ENV_NAME} is {np.mean(rewards)}")

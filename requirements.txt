@@ -1,1 +1,3 @@
 aicrowd-gym
+tqdm
+numpy

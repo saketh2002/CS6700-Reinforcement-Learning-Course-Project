@@ -21,38 +21,26 @@ class Agent:
 
     def __init__(self,env):
         self.env_name = env
-        self.config = config.config[env]
+        self.config = config[self.env_name]
         pass
 
 
-    def learn(self, state, action, reward, next_state, done):
+    def register_reset_train(self, obs):
         '''
-        PARAMETERS  : 
-            - state - discretized 'state'
-            - action - 'action' performed in 'state'
-            - reward - 'reward' received due to action taken
-            - next_state - discretized 'next_state'
-            - done - status flag to represent if an episode is done or not
-        RETURNS     : 
-            - NIL
-        '''
-
-        raise NotImplementedError
-
-    def register_reset(self, obs):
-        '''
+        Use this function in the train phase
         This function is called at the beginning of an episode. 
         PARAMETERS  : 
             - obs - raw 'observation' from environment
         RETURNS     : 
             - action - discretized 'action' from raw 'observation'
         '''
-
+        return 0
         raise NotImplementedError
         return action
 
-    def compute_action(self, obs, reward, done, info):
+    def compute_action_train(self, obs, reward, done, info):
         '''
+        Use this function in the train phase
         This function is called at all subsequent steps of an episode until done=True
         PARAMETERS  : 
             - observation - raw 'observation' from environment
@@ -63,6 +51,36 @@ class Agent:
         RETURNS     : 
             - action - discretized 'action' from raw 'observation'
         '''
-        
+        return 0        
+        raise NotImplementedError
+        return action
+
+    def register_reset_test(self, obs):
+        '''
+        Use this function in the test phase
+        This function is called at the beginning of an episode. 
+        PARAMETERS  : 
+            - obs - raw 'observation' from environment
+        RETURNS     : 
+            - action - discretized 'action' from raw 'observation'
+        '''
+        return 0
+        raise NotImplementedError
+        return action
+
+    def compute_action_test(self, obs, reward, done, info):
+        '''
+        Use this function in the test phase
+        This function is called at all subsequent steps of an episode until done=True
+        PARAMETERS  : 
+            - observation - raw 'observation' from environment
+            - reward - 'reward' obtained from previous action
+            - done - True/False indicating the end of an episode
+            - info -  'info' obtained from environment
+
+        RETURNS     : 
+            - action - discretized 'action' from raw 'observation'
+        '''
+        return 0
         raise NotImplementedError
         return action
