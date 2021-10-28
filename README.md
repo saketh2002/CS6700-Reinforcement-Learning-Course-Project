@@ -85,6 +85,18 @@ ENV_NAME="bellman" python run.py
 
 # 📨 Submission
 
+## Repository structure
+
+**File/Directory** | **Description**
+--- | ---
+[`agent.py`](agent.py) | File for implementing the Agent class. Your code goes in this file.
+[`config.py`](config.py) | File containing the configuration options for  Agent class.
+[`requirements.txt`](requirements.txt) | File containing the list of python packages you want to install for the submission to run. Refer [runtime configuration](#runtime-configuration) for more information.
+[`apt.txt`](apt.txt) | File containing the list of packages you want to install for submission to run. Refer [runtime configuration](#runtime-configuration) for more information.
+[`requirements.txt`](run.py) | File used to evaluate the agent class. Use this file to test your agents locally
+[`gym-bellman`](gym-bellman/) | Folder containing the gym environment for the Bellman's DP problem
+[`docs`](docs/) | Folder containing the descriptions for the environments in the challenge
+[`aicrowd.json`](docs/) | Submission configuration
 
 
 ## Runtime configuration
