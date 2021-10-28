@@ -10,6 +10,7 @@ from tqdm import tqdm
 
 from agent import Agent
 
+
 def train(agent, env):
     obs = env.reset()
     action = agent.register_reset_train(obs)
@@ -18,8 +19,9 @@ def train(agent, env):
         obs, reward, done, info = env.step(action)
         action = agent.compute_action_train(obs, reward, done, info)
 
+
 def evaluate(agent, env):
-    rewards = 0 
+    rewards = 0
     obs = env.reset()
     action = agent.register_reset_test(obs)
     done = False
@@ -29,14 +31,11 @@ def evaluate(agent, env):
         rewards += reward
     return rewards
 
-if __name__ == "__main__":
-    ENV_NAME = os.getenv("ENV_NAME","acrobot")
 
-    N_TRAIN_EPISODES = {
-        "acrobot": 1000,
-        "taxi": 3000,
-        "bellman": 1000
-    }
+if __name__ == "__main__":
+    ENV_NAME = os.getenv("ENV_NAME", "acrobot")
+
+    N_TRAIN_EPISODES = {"acrobot": 1000, "taxi": 3000, "bellman": 1000}
 
     N_EVAL_EPISODES = 100
 
@@ -46,11 +45,11 @@ if __name__ == "__main__":
         env = aicrowd_gym.make("Taxi-v3")
     elif ENV_NAME == "bellman":
         env = aicrowd_gym.make("BellmansDP-v0")
-    
+
     agent = Agent(ENV_NAME)
 
     for i in tqdm(range(N_TRAIN_EPISODES[ENV_NAME])):
-        train(agent ,env)
+        train(agent, env)
 
     rewards = []
     for i in tqdm(range(N_EVAL_EPISODES)):

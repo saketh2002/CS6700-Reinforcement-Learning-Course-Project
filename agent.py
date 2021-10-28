@@ -18,28 +18,26 @@ The final scoring is based on your agent's performance in this phase.
 
 
 class Agent:
-
-    def __init__(self,env):
+    def __init__(self, env):
         self.env_name = env
         self.config = config[self.env_name]
         pass
 
-
     def register_reset_train(self, obs):
-        '''
+        """
         Use this function in the train phase
         This function is called at the beginning of an episode. 
         PARAMETERS  : 
             - obs - raw 'observation' from environment
         RETURNS     : 
             - action - discretized 'action' from raw 'observation'
-        '''
-        return 0
+        """
+
         raise NotImplementedError
         return action
 
     def compute_action_train(self, obs, reward, done, info):
-        '''
+        """
         Use this function in the train phase
         This function is called at all subsequent steps of an episode until done=True
         PARAMETERS  : 
@@ -50,26 +48,26 @@ class Agent:
 
         RETURNS     : 
             - action - discretized 'action' from raw 'observation'
-        '''
-        return 0        
+        """
+
         raise NotImplementedError
         return action
 
     def register_reset_test(self, obs):
-        '''
+        """
         Use this function in the test phase
         This function is called at the beginning of an episode. 
         PARAMETERS  : 
             - obs - raw 'observation' from environment
         RETURNS     : 
             - action - discretized 'action' from raw 'observation'
-        '''
-        return 0
+        """
+
         raise NotImplementedError
         return action
 
     def compute_action_test(self, obs, reward, done, info):
-        '''
+        """
         Use this function in the test phase
         This function is called at all subsequent steps of an episode until done=True
         PARAMETERS  : 
@@ -80,7 +78,7 @@ class Agent:
 
         RETURNS     : 
             - action - discretized 'action' from raw 'observation'
-        '''
-        return 0
+        """
+
         raise NotImplementedError
         return action

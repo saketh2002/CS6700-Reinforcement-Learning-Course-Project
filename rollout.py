@@ -3,8 +3,6 @@ import os
 import time
 
 
-
-
 # Create env and complete a few episodes
 env = aicrowd_gym.make("Acrobot-v1")
 env.reset()
