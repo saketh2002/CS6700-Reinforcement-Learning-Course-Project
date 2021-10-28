@@ -32,7 +32,7 @@ class Agent:
         RETURNS     : 
             - action - discretized 'action' from raw 'observation'
         """
-
+        return 1
         raise NotImplementedError
         return action
 

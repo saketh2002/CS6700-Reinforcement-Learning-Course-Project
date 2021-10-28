@@ -5,6 +5,7 @@ THIS FILE USES THE FUNCTIONS IMPLEMENTED IN agent.py TO EVALUATE YOUR AGENTS
 
 import os
 import aicrowd_gym
+import gym_bellman
 import numpy as np
 from tqdm import tqdm
 
@@ -29,6 +30,7 @@ def evaluate(agent, env):
         obs, reward, done, info = env.step(action)
         action = agent.compute_action_test(obs, reward, done, info)
         rewards += reward
+
     return rewards
 
 
@@ -44,7 +46,7 @@ if __name__ == "__main__":
     elif ENV_NAME == "taxi":
         env = aicrowd_gym.make("Taxi-v3")
     elif ENV_NAME == "bellman":
-        env = aicrowd_gym.make("BellmansDP-v0")
+        env = aicrowd_gym.make("bellman-v0")
 
     agent = Agent(ENV_NAME)
 
