@@ -1,4 +1,4 @@
 aicrowd-gym
 tqdm
 numpy
-./gym-bellman
+-e ./gym-bellman
