@@ -35,7 +35,7 @@ class Agent:
         RETURNS     : 
             - action - discretized 'action' from raw 'observation'
         """
-        time.sleep(10000)
+
         return 1
         raise NotImplementedError
         return action
