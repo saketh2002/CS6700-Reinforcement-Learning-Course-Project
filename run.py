@@ -37,7 +37,7 @@ def evaluate(agent, env):
 if __name__ == "__main__":
     ENV_NAME = os.getenv("ENV_NAME", "acrobot")
 
-    N_TRAIN_EPISODES = {"acrobot": 1000, "taxi": 3000, "bellman": 1000}
+    N_TRAIN_EPISODES = {"acrobot": 3000, "taxi": 1500, "bellman": 1000}
 
     N_EVAL_EPISODES = 100
 

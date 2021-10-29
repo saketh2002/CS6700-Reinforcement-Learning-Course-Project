@@ -49,7 +49,7 @@ This repository contains:
 
 # 💪 Getting started
 
-> We recommend using `python 3.8`. If you are using Miniconda/Anaconda, you can install it using `conda install python=3.8`.
+> We recommend using `python 3.8`. If you are using Miniconda/Anaconda, you can install it using `conda install python=3.8`. Recommentded pip version is > 21.1.1
 
 Clone the starter kit repository and install the dependencies.
 
