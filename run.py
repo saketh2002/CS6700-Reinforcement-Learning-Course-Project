@@ -7,8 +7,8 @@ import os
 import aicrowd_gym
 import gym_bellman
 import numpy as np
-from tqdm import tqdm
-
+from tqdm import trange
+import gym
 from agent import Agent
 
 
@@ -50,11 +50,11 @@ if __name__ == "__main__":
 
     agent = Agent(ENV_NAME)
 
-    for i in tqdm(range(N_TRAIN_EPISODES[ENV_NAME])):
+    for i in trange(N_TRAIN_EPISODES[ENV_NAME], desc="Training"):
         train(agent, env)
 
     rewards = []
-    for i in tqdm(range(N_EVAL_EPISODES)):
+    for i in trange(N_EVAL_EPISODES, desc="Evaluating"):
         rewards.append(evaluate(agent, env))
 
     print(f"Mean reward on your agent for {ENV_NAME} is {np.mean(rewards)}")
