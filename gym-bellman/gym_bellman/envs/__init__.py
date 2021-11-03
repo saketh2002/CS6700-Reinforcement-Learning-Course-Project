@@ -1,1 +1,1 @@
-from gym_bellman.envs.bellman_env import BellmansEnv
+from gym_bellman.envs.bellman_env import BellmanDpA, BellmanDpB, BellmanDpC
