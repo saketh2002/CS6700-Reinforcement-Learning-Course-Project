@@ -6,7 +6,7 @@ The following are the environments you will be working on. Click on the respecti
 
 - [Acrobot-v1](docs/acrobot.md)
 - [Taxi-v3](docs/taxi.md)
-- [Bellman's DP](docs/bellman.md)
+- [KBC](docs/kbc.md)
 
 This repository contains:
 
@@ -77,7 +77,9 @@ To run the evaluation locally, run the following commands.
 ```bash
 ENV_NAME="acrobot" python run.py
 ENV_NAME="taxi" python run.py
-ENV_NAME="bellman" python run.py
+ENV_NAME="kbca" python run.py
+ENV_NAME="kbcb" python run.py
+ENV_NAME="kbcc" python run.py
 
 ```
 
