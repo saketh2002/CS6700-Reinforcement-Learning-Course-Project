@@ -36,8 +36,7 @@ class Agent:
             - action - discretized 'action' from raw 'observation'
         """
 
-        return 1
-        raise NotImplementedError
+        return 0
         return action
 
     def compute_action_train(self, obs, reward, done, info):
@@ -54,7 +53,7 @@ class Agent:
             - action - discretized 'action' from raw 'observation'
         """
 
-        raise NotImplementedError
+        return 0
         return action
 
     def register_reset_test(self, obs):
@@ -67,7 +66,7 @@ class Agent:
             - action - discretized 'action' from raw 'observation'
         """
 
-        raise NotImplementedError
+        return 0
         return action
 
     def compute_action_test(self, obs, reward, done, info):
@@ -84,5 +83,5 @@ class Agent:
             - action - discretized 'action' from raw 'observation'
         """
 
-        raise NotImplementedError
+        return 0
         return action
