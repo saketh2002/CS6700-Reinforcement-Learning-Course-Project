@@ -35,10 +35,10 @@ class Agent:
             self.episode_counts = 0
             self.curr_obs = None
             self.avail_acro = [0, 1, 2]
-            self.lr = 0.2
+            self.lr = 0.18
             self.disc_fact = 1
             self.eps = 1
-            self.eps_decay_rate = 0.000667
+            self.eps_decay_rate = 0.0005
             self.obs_space_low = numpy.array([-1.0, -1.0, -1.0, -1.0, -12.566, -28.274])
             self.bucket_size = numpy.array([0.125, 0.125, 0.125, 0.125, 1.57079637, 3.53429174])
             self.curr_obs = None
@@ -142,7 +142,7 @@ class Agent:
                 self.episode_counts += 1
                 #     self.eps_end_decay = (3 * self.episode_counts) // 4
                 #    self.eps_decay_rate = self.eps / (self.eps_end_decay - self.eps_start_decay)
-                if 1 <= self.episode_counts < 1500:
+                if 1 <= self.episode_counts < 2000:
                     self.eps -= self.eps_decay_rate
 
             return action
