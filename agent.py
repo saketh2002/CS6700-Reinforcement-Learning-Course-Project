@@ -35,10 +35,10 @@ class Agent:
             self.episode_counts = 0
             self.curr_obs = None
             self.avail_acro = [0, 1, 2]
-            self.lr = 0.18
-            self.disc_fact = 0.8
+            self.lr = 0.2
+            self.disc_fact = 1
             self.eps = 1
-            self.eps_decay_rate = 0.0005
+            self.eps_decay_rate = 0.000667
             self.obs_space_low = numpy.array([-1.0, -1.0, -1.0, -1.0, -12.566, -28.274])
             self.bucket_size = numpy.array([0.125, 0.125, 0.125, 0.125, 1.57079637, 3.53429174])
             self.curr_obs = None
@@ -142,7 +142,7 @@ class Agent:
                 self.episode_counts += 1
                 #     self.eps_end_decay = (3 * self.episode_counts) // 4
                 #    self.eps_decay_rate = self.eps / (self.eps_end_decay - self.eps_start_decay)
-                if 1 <= self.episode_counts < 2000:
+                if 1 <= self.episode_counts < 1500:
                     self.eps -= self.eps_decay_rate
 
             return action
@@ -154,7 +154,7 @@ class Agent:
                 action = random.choice(self.avail_taxi)
             else:
                 # exploit
-                action = numpy.argmax(self.q_taxi[obs])
+                action = int(numpy.argmax(self.q_taxi[obs]))
 
             self.q_taxi[self.curr_obs, action] = self.q_taxi[self.curr_obs, action] + self.lr * (
                     reward + self.disc_r * numpy.max(self.q_taxi[obs]) - self.q_taxi[self.curr_obs, action])
@@ -295,10 +295,10 @@ class Agent:
     def register_reset_test(self, obs):
 
         if self.env_name == 'acrobot':
-            action = random.choice(self.avail_acro)
+            action = random.choices([0, 2], weights=[0.5, 0.5], k=1)[0]
 
         if self.env_name == 'taxi':
-            action = numpy.argmax(self.q_taxi[obs])
+            action = int(numpy.argmax(self.q_taxi[obs]))
 
         if self.env_name == 'kbca':
             action = 1
@@ -319,7 +319,7 @@ class Agent:
             action = numpy.argmax(self.q_acro[discrete_obs])
 
         if self.env_name == 'taxi':
-            action = numpy.argmax(self.q_taxi[obs])
+            action = int(numpy.argmax(self.q_taxi[obs]))
 
         if self.env_name == 'kbca':
             obs_convt = [-2 if x == "" else x for x in obs]
