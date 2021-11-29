@@ -128,11 +128,14 @@ class Agent:
 
             discrete_obs = tuple(numpy.clip(((obs - self.obs_space_low) / self.bucket_size).astype(numpy.int), None, 15))
 
+
             self.q_acro[self.curr_obs][self.act] = self.q_acro[self.curr_obs][self.act] + self.lr * (
-                    reward + self.disc_fact * numpy.max(self.q_acro[discrete_obs]) - self.q_acro[self.curr_obs][self.act])
+                    reward + self.disc_fact * self.q_acro[discrete_obs][self.act] - self.q_acro[self.curr_obs][self.act])
+
 
             if random.uniform(0, 1) < self.eps:
                 action = random.choice(self.avail_acro)
+
             else:
                 # get action based on current q_table
                 action = numpy.argmax(self.q_acro[discrete_obs])
@@ -349,4 +352,4 @@ class Agent:
             new_obs = sum(obs_convt)
             action = numpy.argmax(self.q_kbcc[new_obs, :])
 
-        return action
+        return actionpy
