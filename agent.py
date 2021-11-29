@@ -352,4 +352,4 @@ class Agent:
             new_obs = sum(obs_convt)
             action = numpy.argmax(self.q_kbcc[new_obs, :])
 
-        return actionpy
+        return action
