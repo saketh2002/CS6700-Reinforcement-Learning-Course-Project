@@ -32,10 +32,10 @@ class Agent:
             self.episode_counts = 0
             self.curr_obs = None
             self.avail_acro = [0,1,2]
-            self.lr = 0.18
+            self.lr = 0.10
             self.disc_fact = 1
             self.eps = 1
-            self.eps_decay_rate = 0.0005
+            self.eps_decay_rate = 0.0001
             self.obs_space_low = numpy.array([-1.0, -1.0, -1.0, -1.0, -12.566, -28.274])
             self.bucket_size = numpy.array([0.125, 0.125, 0.125, 0.125, 1.57079637, 3.53429174])
             self.curr_obs = None
@@ -47,10 +47,10 @@ class Agent:
             self.episode_counts = 0
             self.curr_obs = None
             self.avail_taxi = [0,1,2,3,4,5]
-            self.lr = 0.9
+            self.lr = 0.8
             self.disc_r = 0.8
             self.eps = 1
-            self.decay_r = 0.005
+            self.decay_r = 0.0001
             self.act = None
 
         if self.env_name == 'kbca':
