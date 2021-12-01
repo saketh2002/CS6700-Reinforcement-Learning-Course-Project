@@ -40,7 +40,7 @@ class Agent:
             self.bucket_size = numpy.array([0.125, 0.125, 0.125, 0.125, 1.57079637, 3.53429174])
             self.curr_obs = None
             self.act = None
-            self.dummy2 = None
+            self.dummy3 = None
 
         if self.env_name == 'taxi':
             self.q_taxi = numpy.zeros((500,6))
