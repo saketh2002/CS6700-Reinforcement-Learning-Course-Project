@@ -35,7 +35,7 @@ class Agent:
             self.episode_counts = 0
             self.curr_obs = None
             self.avail_acro = [0, 1, 2]
-            self.lr = 0.1
+            self.lr = 0.2
             self.disc_fact = 1
             self.eps = 1
             self.eps_decay_rate = 0.0001
